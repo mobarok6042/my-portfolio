@@ -3,11 +3,6 @@
 import emailjs from "@emailjs/browser";
 import { useState, type FormEvent } from "react";
 
-const EMAILJS_SERVICE_ID = "service_6t6thys";
-const EMAILJS_TEMPLATE_ID = "template_llepcdc";
-const EMAILJS_PUBLIC_KEY = "WPWFKNXHUDpN0Khhg";
-const RECIPIENT_EMAIL = "mhossen0102@gmail.com";
-
 export default function ContactForm() {
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState("");
@@ -20,6 +15,18 @@ export default function ContactForm() {
     const name = String(formData.get("name") ?? "");
     const email = String(formData.get("email") ?? "");
     const message = String(formData.get("message") ?? "");
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    const recipientEmail = process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL;
+
+    if (!serviceId || !templateId || !publicKey || !recipientEmail) {
+      setHasError(true);
+      setStatus(
+        "Email is not configured yet. Please email me directly instead.",
+      );
+      return;
+    }
 
     setIsSending(true);
     setStatus("");
@@ -27,15 +34,15 @@ export default function ContactForm() {
 
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
-          to_email: RECIPIENT_EMAIL,
+          to_email: recipientEmail,
           from_name: name,
           reply_to: email,
           message,
         },
-        EMAILJS_PUBLIC_KEY,
+        publicKey,
       );
       setStatus("Thanks! Your message has been sent.");
       form.reset();
