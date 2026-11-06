@@ -16,6 +16,7 @@ import {
   SiShadcnui,
   SiSupabase,
   SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
 
 const projects = [
@@ -50,6 +51,7 @@ const techGroups = [
     name: "Frontend",
     technologies: [
       { name: "JavaScript", detail: "Everyday language", Icon: SiJavascript, color: "#f7df1e" },
+      { name: "TypeScript", detail: "Typed JavaScript", Icon: SiTypescript, color: "#3178c6" },
       { name: "Next.js", detail: "Full-stack React framework", Icon: SiNextdotjs, color: "#101828" },
       { name: "React", detail: "Component-based interfaces", Icon: SiReact, color: "#61dafb" },
       { name: "CSS", detail: "Responsive styling", Icon: SiCss, color: "#663399" },
