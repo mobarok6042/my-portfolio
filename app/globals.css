@@ -30,6 +30,18 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #0d1220;
+  --surface: #151c2f;
+  --ink: #eef2ff;
+  --muted: #9aa6c2;
+  --line: #26304a;
+  --accent: #7b8dff;
+  --accent-ink: #0d1220;
+  --code: #080c17;
+  --code-ink: #dde6ff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -39,6 +51,28 @@ body {
   background: var(--bg);
   color: var(--ink);
   font: 400 17px/1.65 "DM Sans", system-ui, sans-serif;
+}
+
+body,
+header,
+nav a,
+.status,
+.code,
+.card,
+.arsenal-section,
+.tech-group,
+.tech-item,
+.links a,
+form,
+input,
+textarea,
+form button,
+footer {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
 h1,
@@ -57,6 +91,39 @@ a {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+.theme-toggle {
+  position: fixed;
+  z-index: 30;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 6px 24px rgb(16 24 40 / 18%);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+}
+
+.theme-toggle svg {
+  width: 23px;
+  height: 23px;
 }
 
 .wrap {
@@ -696,6 +763,25 @@ footer a:hover {
     scroll-behavior: auto;
   }
 
+  body,
+  header,
+  nav a,
+  .status,
+  .code,
+  .card,
+  .arsenal-section,
+  .tech-group,
+  .tech-item,
+  .links a,
+  form,
+  input,
+  textarea,
+  form button,
+  footer,
+  .theme-toggle {
+    transition: none;
+  }
+
   .cursor {
     animation: none;
   }
@@ -705,7 +791,12 @@ footer a:hover {
   }
 
   .feature-image img,
-  .project-link {
+  .project-link,
+  .theme-toggle {
     transition: none;
+  }
+
+  .theme-toggle:hover {
+    transform: none;
   }
 }
