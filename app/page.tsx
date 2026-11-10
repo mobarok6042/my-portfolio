@@ -100,33 +100,6 @@ function CanvaIcon() {
   return <Image src="/canva.svg" alt="" width={25} height={25} />;
 }
 
-function CodeCard() {
-  return (
-    <div className="code" aria-hidden="true">
-      <div className="dots">
-        <i />
-        <i />
-        <i />
-      </div>
-      <pre>
-        <span className="k">const</span> developer = {"{"}
-        {"\n"}  name: <span className="s">&quot;Mobarok Hossen&quot;</span>,
-        {"\n"}  role: <span className="s">&quot;Full-stack web developer&quot;</span>,
-        {"\n"}  stack: [<span className="s">&quot;Next.js&quot;</span>,{" "}
-        <span className="s">&quot;React&quot;</span>,
-        {"\n"}          <span className="s">&quot;Node.js&quot;</span>,{" "}
-        <span className="s">&quot;MongoDB&quot;</span>],
-        {"\n"}  experience: <span className="s">&quot;5 years&quot;</span>,
-        {"\n"}  <span className="f">hireMe</span>() {"{"}{" "}
-        <span className="k">return</span> <span className="s">true</span>; {"}"}
-        {"\n"}
-        {"};"}
-        <span className="cursor" />
-      </pre>
-    </div>
-  );
-}
-
 function GithubIcon() {
   return (
     <svg
@@ -160,12 +133,15 @@ export default function Home() {
 
       <main id="top">
         <section className="hero">
+          <a
+            className="btn hero-resume"
+            href="/Mobarok_Hossen_Resume.pdf"
+            download="Mobarok_Hossen_Resume.pdf"
+          >
+            Download resume
+          </a>
           <div className="wrap hero-grid">
             <div>
-              <div className="status">
-                <b />
-                Available for freelance work
-              </div>
               <h1>
                 I build fast, clean <mark>web apps</mark> with JavaScript.
               </h1>
@@ -183,7 +159,15 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <CodeCard />
+            <div className="hero-portrait">
+              <Image
+                src="/photo.png"
+                alt="Mobarok Hossen"
+                width={500}
+                height={500}
+                priority
+              />
+            </div>
           </div>
         </section>
 

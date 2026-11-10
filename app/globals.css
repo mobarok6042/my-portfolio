@@ -7,8 +7,6 @@
   --accent: #2f4bff;
   --accent-ink: #ffffff;
   --hi: #ffd84d;
-  --code: #101828;
-  --code-ink: #dde6ff;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0);
   padding-bottom: env(safe-area-inset-bottom, 0);
@@ -25,8 +23,6 @@
     --line: #26304a;
     --accent: #7b8dff;
     --accent-ink: #0d1220;
-    --code: #080c17;
-    --code-ink: #dde6ff;
   }
 }
 
@@ -38,8 +34,6 @@
   --line: #26304a;
   --accent: #7b8dff;
   --accent-ink: #0d1220;
-  --code: #080c17;
-  --code-ink: #dde6ff;
 }
 
 * {
@@ -57,7 +51,7 @@ body,
 header,
 nav a,
 .status,
-.code,
+.hero-portrait,
 .card,
 .arsenal-section,
 .tech-group,
@@ -204,7 +198,25 @@ nav .cta:hover {
 }
 
 .hero {
+  position: relative;
   padding: 72px 0 96px;
+}
+
+.hero-resume {
+  position: absolute;
+  top: 16px;
+  left: max(20px, calc((100% - 1080px) / 2));
+  z-index: 1;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition:
+    transform 0.15s ease,
+    color 0.45s ease;
 }
 
 .hero-grid {
@@ -279,68 +291,32 @@ h1 mark {
   transform: translateY(-2px);
 }
 
-.code {
-  background: var(--code);
-  color: var(--code-ink);
-  border-radius: 18px;
+.hero-portrait {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
   overflow: hidden;
-  box-shadow: 10px 10px 0 var(--accent);
-  font: 400 0.95rem/1.8 ui-monospace, Menlo, Consolas, monospace;
-}
-
-.code .dots {
-  display: flex;
-  gap: 7px;
-  padding: 14px 18px;
-  border-bottom: 1px solid rgb(255 255 255 / 10%);
-}
-
-.code .dots i {
-  width: 11px;
-  height: 11px;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: #ff5f57;
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      color-mix(in srgb, var(--accent) 25%, var(--surface)),
+      var(--surface) 70%
+    );
+  box-shadow: 10px 10px 0 var(--accent);
+  transition:
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
-.code .dots i:nth-child(2) {
-  background: #febc2e;
-}
-
-.code .dots i:nth-child(3) {
-  background: #28c840;
-}
-
-.code pre {
-  padding: 20px 22px;
-  overflow-x: auto;
-  font: inherit;
-}
-
-.k {
-  color: #8ea2ff;
-}
-
-.s {
-  color: #7ee0a3;
-}
-
-.f {
-  color: #ffd84d;
-}
-
-.cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1.1em;
-  background: var(--hi);
-  vertical-align: text-bottom;
-  animation: blink 1s steps(2) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .projects {
@@ -767,7 +743,7 @@ footer a:hover {
   header,
   nav a,
   .status,
-  .code,
+  .hero-portrait,
   .card,
   .arsenal-section,
   .tech-group,
@@ -780,10 +756,6 @@ footer a:hover {
   footer,
   .theme-toggle {
     transition: none;
-  }
-
-  .cursor {
-    animation: none;
   }
 
   .btn {
