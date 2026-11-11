@@ -1,5 +1,6 @@
 import ContactForm from "./contact-form";
 import Image from "next/image";
+import ResumeDownloadButton from "./resume-download-button";
 import {
   SiBetterauth,
   SiCss,
@@ -133,13 +134,7 @@ export default function Home() {
 
       <main id="top">
         <section className="hero">
-          <a
-            className="btn hero-resume"
-            href="/Mobarok_Hossen_Resume.pdf"
-            download="Mobarok_Hossen_Resume.pdf"
-          >
-            Download resume
-          </a>
+          <ResumeDownloadButton />
           <div className="wrap hero-grid">
             <div>
               <h1>
