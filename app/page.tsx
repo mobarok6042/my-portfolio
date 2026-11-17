@@ -134,9 +134,9 @@ export default function Home() {
 
       <main id="top">
         <section className="hero">
-          <ResumeDownloadButton />
           <div className="wrap hero-grid">
             <div>
+              <ResumeDownloadButton />
               <h1>
                 I build fast, clean <mark>web apps</mark> with JavaScript.
               </h1>
