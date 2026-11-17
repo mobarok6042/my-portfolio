@@ -720,6 +720,22 @@ footer a:hover {
   .tech-groups {
     grid-template-columns: 1fr;
   }
+
+  .hero {
+    margin-top: 0;
+    top: 0;
+    padding: 20px 0 32px;
+  }
+
+  .hero-grid {
+    gap: 24px;
+  }
+
+  .hero-resume {
+    top: 6px;
+    padding: 3px 12px;
+    font-size: 0.82rem;
+  }
 }
 
 @media (max-width: 860px) {
