@@ -156,7 +156,7 @@ header {
 @media (min-width: 901px) {
   header {
     top: 16px;
-    width: min(1420px, 100% - 40px);
+    width: min(1560px, 100% - 40px);
     margin-top: 16px;
     margin-inline: auto;
     border: 1px solid var(--line);
