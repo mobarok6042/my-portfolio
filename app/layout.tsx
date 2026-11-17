@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeToggle from "./theme-toggle";
+import SmoothScroll from "./smooth-scroll";
 
 export const metadata: Metadata = {
   title: "Mobarok Hossen | Full-stack web developer",
@@ -32,11 +33,12 @@ export default function RootLayout({
         {/* App Router uses the root layout for site-wide font loading. */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
+        <SmoothScroll />
         {children}
         <ThemeToggle />
       </body>

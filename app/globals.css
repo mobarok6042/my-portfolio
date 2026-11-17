@@ -1,5 +1,6 @@
 @import "@heroui/react/styles";
 @import "m3-ripple/ripple.css";
+@import "lenis/dist/lenis.css";
 
 :root {
   --bg: #f5f7fb;
@@ -44,10 +45,15 @@
   margin: 0;
 }
 
+/* Smooth scrolling everywhere, for all screen sizes and motion preferences */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
-  font: 400 17px/1.65 "DM Sans", system-ui, sans-serif;
+  font: 400 17px/1.65 "Inter", system-ui, sans-serif;
 }
 
 body,
@@ -75,7 +81,7 @@ footer {
 h1,
 h2,
 h3 {
-  font-family: Sora, system-ui, sans-serif;
+  font-family: "Space Grotesk", system-ui, sans-serif;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -124,7 +130,7 @@ a {
 }
 
 .wrap {
-  width: min(1080px, 100% - 40px);
+  width: min(1160px, 100% - 40px);
   margin-inline: auto;
 }
 
@@ -147,9 +153,27 @@ header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+}
+
+/* Desktop: floating navbar box */
+@media (min-width: 901px) {
+  header {
+    top: 16px;
+    width: min(1260px, 100% - 40px);
+    margin-top: 16px;
+    margin-inline: auto;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgb(16 24 40 / 14%);
+  }
+
+  header .bar {
+    width: 100%;
+    padding-inline: 20px;
+  }
 }
 
 .bar {
@@ -160,7 +184,7 @@ header {
 }
 
 .logo {
-  font: 800 1.15rem Sora, sans-serif;
+  font: 700 1.15rem "JetBrains Mono", monospace;
   text-decoration: none;
   letter-spacing: -0.03em;
 }
@@ -210,7 +234,7 @@ nav .cta:hover {
 .hero-resume {
   position: absolute;
   top: 16px;
-  left: max(20px, calc((100% - 1080px) / 2));
+  left: max(20px, calc((100% - 1160px) / 2));
   z-index: 1;
   height: auto;
   padding: 4px 14px;
@@ -255,7 +279,7 @@ nav .cta:hover {
 
 h1 {
   font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -350,7 +374,7 @@ h1 mark {
   min-height: 170px;
   display: grid;
   place-items: center;
-  font: 800 2.2rem Sora, sans-serif;
+  font: 700 2.2rem "Space Grotesk", sans-serif;
   color: #fff;
   text-align: center;
   padding: 18px;
@@ -464,8 +488,7 @@ h1 mark {
 }
 
 .tags span {
-  font-size: 0.82rem;
-  font-weight: 500;
+  font: 500 0.82rem "JetBrains Mono", monospace;
   background: var(--bg);
   border: 1px solid var(--line);
   padding: 3px 11px;
@@ -663,7 +686,7 @@ textarea {
 }
 
 form button {
-  font: 700 1rem "DM Sans", sans-serif;
+  font: 700 1rem "Inter", sans-serif;
   cursor: pointer;
   background: var(--accent);
   color: var(--accent-ink);
@@ -758,10 +781,6 @@ footer a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    scroll-behavior: auto;
-  }
-
   body,
   header,
   nav a,
